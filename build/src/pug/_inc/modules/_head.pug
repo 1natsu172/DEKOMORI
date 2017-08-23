@@ -1,0 +1,24 @@
+include /_inc/mixin/_meta.pug
+
+html(lang="ja" prefix="og: http://ogp.me/ns#")
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    meta(name="format-detection", content="telephone=no")
+    //- inherit meta Tags
+    block pageMeta
+    link(rel="icon" ,href= pathSetting.image + '/siteImage/favicon.ico')
+    link(rel="apple-touch-icon" ,href= pathSetting.image + '/siteImage/apple-touch-icon.png')
+    link(rel="canonical" ,href= siteSetting.rootUrl+pageSummary.pageUrl)
+    //- Load Compiled CSS
+    link(rel="stylesheet",href= pathSetting.css + '/style.css')
+    //- Load Compiled JS from moduleBundler
+    script(src= pathSetting.js + '/commonsChunk.bundle.js' defer)
+    script(src= pathSetting.js + '/app.bundle.js' defer)
+    //- inherit assets(add js,css,…etc)
+    block additionalAssets
+    //- include Analytics Tags
+    include /_inc/modules/_analytics.pug
+
+    

@@ -1,0 +1,29 @@
+mixin metaList(pageSummaryObj)
+  //- titleTag
+  -
+    const metaPageTitle = ()=> {
+      if (pageSummaryObj.type !== "website") {
+        return `${pageSummaryObj.title} - ${siteSetting.siteName}`
+      } else {
+        return `${siteSetting.siteName}`
+      }
+    }
+    
+  // ogp
+  meta(property="og:site_name", content= siteSetting.siteName)
+  meta(property="og:title", content= metaPageTitle())
+  meta(property="og:description", content= pageSummaryObj.description)
+  meta(property="og:type", content= pageSummaryObj.type)
+  meta(property="og:locale", content="ja_JP")
+  meta(property="og:url", content= siteSetting.rootUrl + pageSummaryObj.pageUrl)
+  meta(property="og:image", content= pageSummaryObj.ogImageUrl)
+  if siteSetting.fbAppID
+    meta(property="fb:app_id", content= siteSetting.fbAppID)
+  meta(name="twitter:card", content="summary_large_image")
+  if siteSetting.twitterUserName
+    meta(name="twitter:site" content= '@' + siteSetting.twitterUserName[0])
+
+  // other meta
+  meta(name="description" ,content= pageSummaryObj.description)
+
+  title= metaPageTitle()

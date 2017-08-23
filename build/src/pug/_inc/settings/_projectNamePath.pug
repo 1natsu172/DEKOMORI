@@ -1,0 +1,23 @@
+//- This file is path of the repository name (project name) used for subdirectory type URL.
+//- << REASON >>
+//- We want to set all paths to assets with root path.
+//- However, depending on the service, the URL may be a sub-directory type like "domain + project name" (eg. https: //username.github.io/example-project-name).
+//- In the case of such a service, it is necessary to resolve the sub-directory type URL by judging with the cli argument.
+
+-
+  // require in the pug world, but can not originally.
+  // this implementation method is violence solution…
+  // # https://github.com/pugjs/pug/issues/2604
+  // # https://github.com/pugjs/pug/issues/2615
+  const repositoryName = require(process.cwd() + '/configs/getRepositoryName.js')
+  const argv = require('minimist')(process.argv.slice(2)); // parse arguments from CLI
+  const _isURLsubDirectoryType = !!argv.URLisSubDirectoryType
+  
+  
+  // Define projectNamePath.
+  // In the default, projectNamePath is none.
+  // When the deploy destination is a subdirectory type URL, path changes to repository name.
+  let _projectNamePath = ''
+  if (_isURLsubDirectoryType === true ) {
+    _projectNamePath = `/${repositoryName}`
+  }

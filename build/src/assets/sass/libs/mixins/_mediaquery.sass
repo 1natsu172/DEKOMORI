@@ -1,0 +1,14 @@
+// max-width type media query : usage "+break-max($break-point)"
+@mixin break-max($break-point)
+  @media screen and (max-width: $break-point)
+    @content
+
+// min-width type media query : usage "+break-min($break-point)"
+@mixin break-min($break-point)
+  @media screen and (min-width: $break-point)
+    @content
+
+// min-width and max-width scope type media query : usage "+break-scope($break-point, $break-point)"
+@mixin break-scope($break-point-min, $break-point-max)
+  @media screen and (min-width: $break-point-min) and (max-width: $break-point-max)
+    @content

@@ -1,0 +1,88 @@
+//- extend layout
+extends /_inc/template/_layout.pug
+
+//- about this page summary
+block pageSummary
+  -
+    // Please set as you like.
+    const pageSummary = {
+      id: 'page-subpage-index', //- this is like a page number => add class to <body> tag
+      title: 'this is sub page title',
+      description: 'this is sub page description',
+      pageUrl: '/subpage/index.html', //- please set root path.
+      ogImageUrl: siteSetting.rootUrl + pathSetting.image + '/siteImage/ogp-image.png', //- if set other image, please set absolute path.
+      type: 'article', //- (OGP type: http://ogp.me/) - if the top page, this value is "website"
+    }
+
+//- this page meta data
+block pageMeta
+  //- create metaList
+  +metaList(pageSummary)
+
+//- if you want to add more assets
+block additionalAssets
+  script(src= pathSetting.js + '/index.bundle.js' defer)
+  //- External URL reference example
+    likes…
+    link(href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet")
+
+//- this page contents below
+block contents
+  // main
+  main.l-main
+    article.l-content
+      section.exampleGrid
+        h2.exampleGrid__title Grid example using NEAT.
+        // card
+        -
+          const cardImg = [
+            'https://unsplash.it/600/300',
+            'https://unsplash.it/700/400',
+            'https://unsplash.it/800/500',
+            'https://unsplash.it/900/600'
+          ]
+        -
+          const cardTitle = [
+            'item1',
+            'item2',
+            'item3',
+            'item4'
+          ]
+        -
+          const cardDescription = [
+            'item1 description',
+            'item2 description',
+            'item3 description',
+            'item4 description'
+          ]
+        each val,index in cardImg
+          article.exampleGrid__item
+            img.card__img(src= val,alt= cardTitle[index])
+            h1.card__title= cardTitle[index]
+            p.card__caption= cardDescription[index]
+
+      aside.example__shareUnit
+        ul.example__shareButton
+          -
+            const shareService = [
+              'hatebu',
+              'twitter',
+              'facebook',
+              'line'
+            ]
+          each val,i in shareService  
+            li.example__shareButton__official
+              +shareButton(shareService[i])
+        ul.example__shareButton
+          li.example__shareButton__custom
+            +shareButton('hatebu', 'custom')(class='btn btn-hatebu')
+              |B!
+          li.example__shareButton__custom
+            +shareButton('twitter', 'custom')(class='btn btn-twitter')
+              |Twiter
+          li.example__shareButton__custom
+            +shareButton('facebook', 'custom')(class='btn btn-facebook')
+              |Facebook
+          li.example__shareButton__custom
+            +shareButton('line', 'custom')(class='btn btn-line')
+              |LINE

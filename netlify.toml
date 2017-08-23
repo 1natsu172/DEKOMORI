@@ -1,0 +1,6 @@
+# Global settings applied to the whole site.
+[build]
+  command = "npm run deploy:netlify"
+  publish = "build/_release"
+  [build.environment]
+    NODE_VERSION = "7.4"

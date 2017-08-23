@@ -1,0 +1,21 @@
+//// Styles specific to each page：for index.pug
+
+// Grid example using NEAT's custom grid & Example of using media query(break-point).
+.exampleGrid
+  text-align: center
+  // include NEAT grid-container
+  +grid-container($custom-grid-example)
+  &__title
+    font-size: 3rem
+    margin-bottom: 2.5rem
+  &__item
+    // include NEAT grid column (mobile first)
+    +grid-column(12, $custom-grid-example)
+    // Media query(min-width) with small type tablet's min-resolution
+    +break-min($res-smallTab-min)
+      // grid 2column:(12/6)=2
+      +grid-column(6, $custom-grid-example)
+    // Media query(min-width) with desktop min-resolution
+    +break-min($res-pc-min)
+      // grid 4column:(12/3)=4
+      +grid-column(3, $custom-grid-example)

@@ -1,0 +1,15 @@
+//- include projectNamePath function's pug file
+include /_inc/settings/_projectNamePath.pug
+
+//- pathSettings.
+//- Normally, don't need to change the path.
+-
+  const pathSetting = {
+    image: _projectNamePath + '/assets/images', //- {string}
+    svgSprite: {
+      keepFill: _projectNamePath + '/assets/svgSprite/keepFill/symbol/sprite_keepFill.svg', //- {string}
+      removeFill: _projectNamePath + '/assets/svgSprite/removeFill/symbol/sprite_removeFill.svg', //- {string}
+    },
+    css: _projectNamePath + '/assets/css', //- {string}
+    js: _projectNamePath + '/assets/js', //- {string}
+  }

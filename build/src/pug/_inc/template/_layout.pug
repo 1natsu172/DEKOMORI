@@ -1,0 +1,21 @@
+//- load siteSetting
+include /_inc/settings/_siteSetting.pug
+//- load pathSetting
+include /_inc/settings/_pathSetting.pug
+//- load mixin
+include /_inc/mixin/_shareButton.pug
+
+//- Define pageSummary settings
+block pageSummary
+
+doctype html
+//- include head tag
+include /_inc/modules/_head.pug
+  body(class= pageSummary.id)
+    .l-global
+      //- include header
+      include /_inc/modules/_header.pug
+      //- inherit contents
+      block contents
+      //- include footer
+      include /_inc/modules/_footer.pug
