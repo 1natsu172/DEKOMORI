@@ -52,7 +52,7 @@ $ npm run dev
 
 > SVG sprite preview is displayed on the googleChrome tab, then the local server will start up.
 
-##### [Let's setup web site settings and ready go!](#lets-setup-sitesetting)
+##### [Let's setup web site settings and ready go!](#-lets-setup-web-site-settings-and-ready-go)
 
 
 ***
@@ -77,7 +77,7 @@ $ npm run dev
 
 > SVG sprite preview is displayed on the googleChrome tab, then the local server will start up.
 
-##### [Let's setup web site settings and ready go!](#lets-setup-sitesetting)
+##### [Let's setup web site settings and ready go!](#-lets-setup-web-site-settings-and-ready-go)
 
 
 
@@ -98,7 +98,7 @@ $ git remote set-url origin <created-repository-URL>
 
 ***
 
-#### 🔧 Let's setup web site settings and ready go! {#lets-setup-sitesetting}
+#### 🔧 Let's setup web site settings and ready go!
 
 * 1st step: Let's setup pug's `_siteSetting.pug`.
 
