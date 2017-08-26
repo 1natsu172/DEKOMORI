@@ -12,6 +12,8 @@ The good minimum settings for handcrafted static web pages has been almost compl
 
 DEKOMORI is big and heavy structure, but doesn't include generic components and HTML frameworks (like Bootstrap, Foundation) .
 
+[https://1natsu172.github.io/dekomori/](https://1natsu172.github.io/dekomori/)
+
 ## Getting Started
 
 ##### Requires
