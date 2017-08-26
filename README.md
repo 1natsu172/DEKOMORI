@@ -1,6 +1,6 @@
 # DEKOMORI
 
-![](/DEKOMORI/blob/master/build/src/assets/images/siteImage/dekomori-keyVisual@2x.png)
+![](build/src/assets/images/siteImage/dekomori-keyVisual@2x.png)
 
 ## What is this?
 
