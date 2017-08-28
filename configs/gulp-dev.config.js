@@ -226,7 +226,14 @@ export function dev_generateSvgSprite(callback) {
 }
 
 // copy files -- develop
-// export function dev_copyFiles() {}
+export async function dev_copyFiles() {
+  // copy processed images from dest directory
+  await gulp
+    // .ico files(like favicon)
+    .src(DIR.src.assetsImage + '/**/*.ico')
+    .pipe(changed(DIR.dest.assetsImage))
+    .pipe(gulp.dest(DIR.dest.assetsImage))
+}
 
 // open files process
 export function dev_openFile(callback) {
@@ -260,7 +267,7 @@ export function dev_watch() {
 export const dev_process = gulp.parallel(
   dev_styles,
   dev_scripts,
-  // dev_copyFiles,
+  dev_copyFiles,
   dev_minifyImages,
   dev_generateSvgSprite
 )
