@@ -3,18 +3,20 @@ header.l-header
   // logo
   h1.l-header__logo
     svg.l-header__logo__svg
-      title Logo
-      use(xlink:href= pathSetting.svgSprite.keepFill + '#003-support')
+      title DEKOMORI
+      desc handcrafted static web-page kit.
+      use(xlink:href= pathSetting.svgSprite.keepFill + '#dekomori-logo-bottomType')
+
 
   //nav
   nav.l-header__nav
     -
-      const navLink = {
-        "pugDocs" : "https://pugjs.org/api/getting-started.html",
-        "GitHub" : "https://github.com/",
-        "otherLink" : "#"
+      const headerNavLink = {
+        "DEKOMORI GitHub" : "https://github.com/1natsu172/DEKOMORI",
+        "DEKOMORI documents" : "https://1natsu172.gitbooks.io/dekomori/content/",
+        "pug documents" : "https://pugjs.org/api/getting-started.html"
       }
     ul.headerNav
-      each val,key in navLink
+      each val,key in headerNavLink
         li.headerNav__item
-          a(href= val)= key
+          a(href= val target="_blank")= key
