@@ -165,6 +165,9 @@ export function dev_minifyImages() {
 
 // SVG sprite
 const svgSpriteConfig_remove = {
+  svg: {
+    namespaceIDs: false // id="layerID" => id="alayerID"
+  },
   shape: {
     dimension: {
       // Set maximum dimensions
@@ -180,7 +183,9 @@ const svgSpriteConfig_remove = {
         svgo: {
           // SVGO Options
           plugins: [
-            { removeAttrs: { attrs: 'fill' } } // remove <fill> attributes
+            { removeAttrs: { attrs: ['fill', 'stroke'] } }, // remove <fill> & <stroke> attributes
+            { cleanupIDs: false } // remove unused and minify used IDs
+            // { convertShapeToPath: false } // convert to <g>,<path>
           ]
         }
       }
