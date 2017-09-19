@@ -45,7 +45,7 @@ const commonConfig = {
             ],
             'stage-3'
           ],
-          plugins: ['transform-runtime'] // transform-runtime polyfill
+          plugins: ['transform-runtime', 'transform-es2015-modules-commonjs'] // transform-runtime polyfill
         }
       },
       {
