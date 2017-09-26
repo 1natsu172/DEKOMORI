@@ -184,8 +184,9 @@
     justify-content: space-around
     max-width: 70rem
     margin: 0 auto 3rem
+    +mq-min($res-largeTab-min)
+      margin: 4.5rem auto 4rem
   &__buttons__item
-    // margin: 0 2rem
   // シェアボタン各社カラー変更する
   .shareBtn--twitter
     fill: $color-twitter
