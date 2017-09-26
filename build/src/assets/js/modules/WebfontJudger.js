@@ -8,24 +8,25 @@ const WebfontJudger = () => {
       },
       timeout: 3000,
       loading: () => {
-        console.log('fonts now loading…')
+        // console.log('fonts now loading…')
       },
       active: () => {
-        console.log('All fonts load complete!')
+        // console.log('All fonts load complete!')
         resolve()
       },
       inactive: () => {
-        console.log('Fonts load failed…')
-        reject()
+        // console.log('Fonts load failed…')
+        // reject()
+        resolve()
       },
       fontloading: (fontFamilyName, fontVariationDescription) => {
-        console.log('loading👉', fontFamilyName, fontVariationDescription)
+        // console.log('loading👉', fontFamilyName, fontVariationDescription)
       },
       fontactive: (fontFamilyName, fontVariationDescription) => {
-        console.log('成功👉', fontFamilyName, fontVariationDescription)
+        // console.log('成功👉', fontFamilyName, fontVariationDescription)
       },
       fontinactive: (fontFamilyName, fontVariationDescription) => {
-        console.log('失敗👉', fontFamilyName, fontVariationDescription)
+        // console.log('失敗👉', fontFamilyName, fontVariationDescription)
       }
     })
   })

@@ -10,6 +10,7 @@ import webfontJudger from 'WebfontJudger'
 
 // ✍️
 document.addEventListener('DOMContentLoaded', () => {
+  // set _blank attributes to external site link
   const setBlankAnchorAttributes = (() => {
     const aTag = document.querySelectorAll('a')
     for (var i = 0; i < aTag.length; i++) {
@@ -55,7 +56,7 @@ const stripeEffects = () => {
       y: 15,
       transformOrigin: 'bottom',
       visibility: 'visible',
-      onStart: console.log('ストライプエフェクト開始'),
+      // onStart: console.log('ストライプエフェクト開始'),
       onComplete: hidingStripeBackground() // この.set処理でstripeBorderElement1がベタ塗りレイヤーに変わり背景レイヤー不要になるので消す
     })
     // エフェクト初期位置設定
@@ -93,22 +94,22 @@ const judgeLoadState = () => {
   return new Promise((resolve, reject) => {
     imagesLoaded('.l-global', { background: true })
       .on('always', instance => {
-        console.log('on always')
+        // console.log('on always')
       })
       .on('fail', instance => {
-        console.log('on failed')
+        // console.log('on failed')
         resolve()
       })
       .on('progress', (instance, image) => {
-        // console.log('on progress')
-        console.log('ロードしてる')
+        // console.log('ロードしてる')
         // console.log('instance', instance)
         // console.log('image', image)
-        console.log('loadingProgressRate', loadingProgressRate)
-        console.log(
-          'loadingProgressRate*100',
-          Math.ceil(loadingProgressRate * 100)
-        )
+
+        // console.log('loadingProgressRate', loadingProgressRate)
+        // console.log(
+        //   'loadingProgressRate*100',
+        //   Math.ceil(loadingProgressRate * 100)
+        // )
 
         loadingProgressRate =
           // 小数点第3位に丸める
@@ -125,7 +126,7 @@ const judgeLoadState = () => {
       })
       .on('done', instance => {
         resolve()
-        console.log('Image読み込みおわった')
+        // console.log('Image読み込みおわった')
       })
   })
 }
@@ -143,7 +144,7 @@ loadingGaugeTl
 function loadingGaugeAfterCompletion() {
   // ローディングの白背景邪魔になるので透過
   TweenMax.set('.l-loading', { backgroundColor: 'transparent' })
-  console.log('l-loading BGdelete')
+  // console.log('l-loading BGdelete')
   TweenMax.to('.loadingSpinner', 0.8, { autoAlpha: 0 }) // フェードアウト
   loadingSpinnerAnimation.kill() // そしてアニメーション切る
   loadingGaugeTl.add(stripeEffects()).play()
@@ -207,7 +208,7 @@ const loadComplete = () => {
     // addclassしたりする
     document.body.classList.remove('is-loading')
     document.body.classList.add('is-loadComplete')
-    console.log('loadCompleteした')
+    // console.log('loadCompleteした')
     resolve()
   })
 }
