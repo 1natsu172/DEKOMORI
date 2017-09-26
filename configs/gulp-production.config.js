@@ -73,7 +73,7 @@ export function prod_styles() {
     .pipe(
       pleeease({
         minifier: true,
-        mqpacker: true,
+        mqpacker: false,
         autoprefixer: {
           cascade: false
         },

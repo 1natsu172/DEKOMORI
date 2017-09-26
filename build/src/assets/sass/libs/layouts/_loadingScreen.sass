@@ -1,0 +1,41 @@
+//// for loaging screen
+////
+.l-loading
+  background-color: $color-loadingBG
+  position: fixed
+  z-index: 9999
+  width: 100vw
+  height: 100vh
+  // display: block !important
+
+.loadingGauge
+  width: 100%
+  height: 100%
+  transform: scaleY(0)
+  transform-origin: bottom
+
+.loadingSpinner
+  +place
+  width: 2rem
+  height: 2rem
+  &:before,&:after
+    content: ""
+    position: absolute
+    width: 100%
+    height: 0.3rem
+    background-color: $color-loadingSpinnerLine
+    transform: rotate(-33deg)
+  &::before
+    top: 0
+    left: 0
+    transform-origin: left
+  &::after
+    bottom: 0
+    right: 0
+    transform-origin: right
+
+// ストライプ初期スタイル
+.stripeBorder--1
+  visibility: hidden
+.stripeBorder--2
+  visibility: hidden

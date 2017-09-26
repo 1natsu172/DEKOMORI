@@ -9,10 +9,13 @@ include /_inc/mixin/_shareButton.pug
 block pageSummary
 
 doctype html
+include /_inc/modules/_licenceNotice.pug
 //- include head tag
 include /_inc/modules/_head.pug
   body(class= pageSummary.id)
     .l-global
+      //- loading screen
+      include /_inc/modules/_loadingScreen.pug
       //- include header
       include /_inc/modules/_header.pug
       //- inherit contents

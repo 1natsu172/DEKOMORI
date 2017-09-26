@@ -1,1 +1,37 @@
 // for header layouts style
+
+.l-header
+  background-color: $color-header
+  text-align: center
+  padding: 4.5rem 0 3.5rem
+  +mq-min($res-largeTab-min)
+    padding: 6rem 0
+  &__logo
+    padding-bottom: 1.8rem
+    margin: 0
+  &__logo__svg
+    width: 20rem
+    +mq-min($res-largeTab-min)
+      width: 25rem
+      height: 18rem
+    +mq-min($res-pc-min)
+      width: 30rem
+      height: 23rem
+  &__poetry
+    font-style: italic
+    margin-bottom: 4.5rem
+    line-height:  $lineHeight-lead
+  &__nav
+    // margin-bottom: 4rem
+  &__versionInfo
+    margin: 3.5rem 0 0
+    font-size: 1.4rem
+    opacity: 0.6
+  &__adsense
+    margin-top: 3.5rem
+
+.headerNav
+  &__item
+    margin-bottom: 2rem
+    &:last-of-type
+      margin-bottom: 0

@@ -28,3 +28,30 @@
     top: $position2
     left: $position1
     transform: $addPrependProp translate(-$position1, -$position2) $addAppendProp
+
+
+// slant background kit
+//
+=slantBackground($backLayerColor: $color-slantBG-back, $frontLayerColor: $color-slantBG-front, $backLayerScale: null, $backLayerRotate: 0, $backLayerSkew: null, $backLayerTranslate: 0, $frontLayerScale: 1, $frontLayerRotate: 0, $frontLayerSkew: '-33deg', $frontLayerTranslate: 0)
+  position: relative
+  background-color: transparent
+  overflow: hidden
+  &::before,&::after
+    content: ''
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    right: 0
+    left: 0
+    bottom: 0
+  &::before // This is backLayer
+    background-color: $backLayerColor
+    z-index: -2
+    transform: none
+    @if ($backLayerScale != null and $backLayerSkew != null)
+      transform: scale(#{$backLayerScale}) rotate(#{$backLayerRotate}) skew(#{$backLayerSkew}) translate(#{$backLayerTranslate})
+  &::after // This is frontLayer
+    background-color: $frontLayerColor
+    transform: scale(#{$frontLayerScale}) rotate(#{$frontLayerRotate}) skew(#{$frontLayerSkew}) translate(#{$frontLayerTranslate})
+    z-index: -1

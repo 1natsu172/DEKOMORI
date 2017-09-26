@@ -1,22 +1,56 @@
+//- packageJson参照する
+include /_inc/modules/_getJson.pug
+
 // header
 header.l-header
-  // logo
-  h1.l-header__logo
-    svg.l-header__logo__svg
-      title DEKOMORI
-      desc handcrafted static web-page kit.
-      use(xlink:href= pathSetting.svgSprite.keepFill + '#dekomori-logo-bottomType')
+  div.l-container
+    // logo
+    h1.l-header__logo
+      svg.l-header__logo__svg
+        title DEKOMORI
+        desc handcrafted static web-page kit.
+        use(xlink:href= pathSetting.svgSprite.keepFill + '#dekomori-logo-bottomType')
+    div.l-header__poetry Handcrafted static web-page kit with like Chaos.
 
-
-  //nav
-  nav.l-header__nav
-    -
-      const headerNavLink = {
-        "DEKOMORI GitHub" : "https://github.com/1natsu172/DEKOMORI",
-        "DEKOMORI documents" : "https://1natsu172.gitbooks.io/dekomori/content/",
-        "pug documents" : "https://pugjs.org/api/getting-started.html"
-      }
-    ul.headerNav
-      each val,key in headerNavLink
-        li.headerNav__item
-          a(href= val target="_blank")= key
+    //nav
+    nav.l-header__nav
+      -
+        const headerNavLink = [
+          {
+            navItem: 'GitHub',
+            URL: 'https://github.com/1natsu172/DEKOMORI',
+            iconHash: 'github'
+          },
+          {
+            navItem: 'Documentation',
+            URL: 'https://1natsu172.gitbooks.io/dekomori/content/',
+            iconHash: 'book-solid'
+          }
+          
+          // "pug documents" : "https://pugjs.org/api/getting-started.html"
+        ]
+      ul.headerNav
+        each val,index in headerNavLink
+          li.headerNav__item
+            button(type='button')
+              a(href= val.URL target="_blank").m-btn--icon
+                svg.headerNav__item__icon.m-btn__icon
+                  title= val.navItem
+                  use(xlink:href= pathSetting.svgSprite.keepFill + '#' + val.iconHash)
+                //- output text
+                = val.navItem
+    
+    aside: p.l-header__versionInfo Version #{getPackageJson().version}
+    
+    aside.l-header__adsense
+      .
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- DEKOMORI-LP ディスプレイ広告 -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2249913440879363"
+             data-ad-slot="5172582357"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>

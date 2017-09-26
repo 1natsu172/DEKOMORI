@@ -1,3 +1,26 @@
 // footer
 footer.l-footer
-  small &copy; this is footer copyright
+  .l-container
+    aside.creditInfo
+      p.creditInfo__p
+        a(href='https://github.com/1natsu172/DEKOMORI') DEKOMORI is MIT licenced GitHub project
+      p.creditInfo__p Created & Maintained by 
+        a(href='https://twitter.com/1natsu172')
+          img.inline-authorIcon(src= pathSetting.image + '/authorIcon/icon-1natsu_deepBlue.png')
+          |@1natsu172
+      p.creditInfo__p Icons by 
+        a(href='https://vmware.github.io/clarity/icons/clarity-icons') Clarity Icons
+      
+    //- Google Adsense
+    aside.l-footer__adsense
+      .
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-format="fluid"
+             data-ad-layout-key="-gp-r+38-1l-4x"
+             data-ad-client="ca-pub-2249913440879363"
+             data-ad-slot="4904989041"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>

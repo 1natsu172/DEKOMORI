@@ -1,14 +1,66 @@
 // Generic button
 .m-btn
+  $this: &
   padding: .6rem 1.2rem
+  // padding-left: 3.8rem
   color: $color-btnText
-  background-color: $color-btnBg
+  // background-color: $color-btnBg
+  background-color: transparent
+  border: solid 1px $color-btnText
   text-align: center
   display: inline-block
   line-height: $lineHeight-btn
   cursor: pointer
   transition: all .3s
+  position: relative
   &:hover
-    opacity: .7
     color: $color-btnText-hover
     background-color: $color-btnBg-hover
+  &__icon
+    // max-width: 10%
+    position: absolute
+    left: 1rem
+    width: 2rem
+    height: 2rem
+    fill: $color-btnIcon
+    transition: all .3s
+    #{$this}:hover &
+      fill: $color-btnIcon-hover
+
+.m-btn--icon
+  @extend .m-btn
+  padding-left: 3.8rem
+
+.m-btn--fill
+  @extend .m-btn
+  background-color: $color-btnBg
+  border: none
+  color: white
+  &:hover
+    background-color: $color-btnBg
+
+.m-btn--sns
+  @extend .m-btn
+  padding: 1rem
+  position: relative
+  border: none
+  &:hover
+    background-color: transparent // extend style 打ち消し
+  &::after,&::before
+    content: ''
+    background: repeating-linear-gradient( -33deg, $color-stripe1, $color-stripe1 2px, $color-btnBg 2px, $color-btnBg 4px)
+    width: 100%
+    height: .5rem
+    position: absolute
+    bottom: 0
+    left: 0
+    transition: all .3s
+  &:hover::before
+    opacity: 1
+  &:hover::after
+    // ストライプ(linear-gradient)にトランジション効かないのでOpacityで背面Before要素と切り替える
+    opacity: 0
+  &__icon--svg
+    width: 2.6rem
+    height: 2.6rem
+    vertical-align: middle

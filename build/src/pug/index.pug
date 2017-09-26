@@ -6,12 +6,12 @@ block pageSummary
   -
     // Please set as you like.
     const pageSummary = {
-      id: 'page-index', //- this is like a page number => add class to <body> tag
-      title: 'this is index page title',
-      description: 'this is index page description',
-      pageUrl: '/index.html', //- please set root path.
+      id: 'page-intro', //- this is like a page number => add class to <body> tag
+      title: 'Handcrafted static web-page kit with like Chaos.',
+      description: 'Handcrafted static web-page kit with like Chaos.',
+      pageUrl: '', //- please set root path.
       ogImageUrl: siteSetting.rootUrl + pathSetting.image + '/siteImage/ogp-image.png', //- if set other image, please set absolute path.
-      type: 'article', //- (OGP type: http://ogp.me/) - if the top page, this value is "website"
+      type: 'website', //- (OGP type: http://ogp.me/) - if the top page, this value is "website"
     }
 
 //- this page meta data
@@ -30,60 +30,256 @@ block additionalAssets
 block contents
   // main
   main.l-main
-    article.l-content
-      section.exampleGrid
-        h2.exampleGrid__title ⚡️ Grid example using NEAT.
-        // card
-        -
-          const cardImg = [
-            'https://unsplash.it/600/300',
-            'https://unsplash.it/700/400',
-            'https://unsplash.it/800/500',
-            'https://unsplash.it/900/600'
-          ]
-        -
-          const cardTitle = [
-            'item1',
-            'item2',
-            'item3',
-            'item4'
-          ]
-        -
-          const cardDescription = [
-            'item1 description',
-            'item2 description',
-            'item3 description',
-            'item4 description'
-          ]
-        each val,index in cardImg
-          article.exampleGrid__item
-            img.card__img(src= val,alt= cardTitle[index])
-            h1.card__title= cardTitle[index]
-            p.card__caption= cardDescription[index]
-
-      aside.example__shareUnit
-        h2.exampleGrid__title ⚡️ Share Button example by mixin.
-        ul.example__shareButton
+    section.l-section.about-whatIsThis
+      .l-container
+        h1.about-whatIsThis__heading What is this ?
+        h2.about-whatIsThis__answer So-called static web-page boilerplate.
+        p.about-whatIsThis__creditInfo Created & Maintained by 
+          a(href='https://twitter.com/1natsu172') @1natsu172
+      
+    section.l-section.about-feature
+      .l-container
+        h1.about-feature__heading Features
+        ul.about-feature__list
+          -
+            // iconHash = SVG sprite use symbol
+            const featureList = [
+              {
+                name: 'Local server',
+                desc: 'Auto start & open',
+                iconHash: 'computer-line',
+                annotation: ''
+              },
+              {
+                name: 'Live reloading',
+                desc: 'Auto detect file changes',
+                iconHash: 'refresh-line',
+                annotation: ''
+              },
+              {
+                name: 'Multi pages',
+                desc: 'High-performance rendering',
+                iconHash: 'add-text-line',
+                annotation: 'with Pug'
+              },
+              {
+                name: 'Good OGP',
+                desc: 'Automatic good settings',
+                iconHash: 'network-globe-line',
+                annotation: ''
+              },
+              {
+                name: 'OK SEO',
+                desc: 'Automatic OK settings',
+                iconHash: 'search-line',
+                annotation: ''
+              },
+              {
+                name: 'Good share button',
+                desc: 'Quick set & good settings',
+                iconHash: 'share-line',
+                annotation: 'provide by mixin'
+              },
+              {
+                name: 'Sass support',
+                desc: 'not SCSS',
+                iconHash: 'list-outline-badged',
+                annotation: 'but support SCSS compile'
+              },
+              {
+                name: 'Grid system',
+                desc: 'Customizable grid & margin',
+                iconHash: 'grid-view-line',
+                annotation: 'with NEAT'
+              },
+              {
+                name: 'Sourcemaps support',
+                desc: 'Smooth development',
+                iconHash: 'map-line',
+                annotation: ''
+              },
+              {
+                name: 'Minify & Optimize',
+                desc: 'Output good files',
+                iconHash: 'slider-line',
+                annotation: ''
+              },
+              {
+                name: 'Stable ES.next support',
+                desc: 'Try next generation',
+                iconHash: 'fast-forward-line',
+                annotation: '(& support Stage-3)'
+              },
+              {
+                name: 'Module bundler',
+                desc: 'with webpack',
+                iconHash: 'block-line',
+                annotation: 'only JavaScript'
+              },
+              {
+                name: 'Transpiler',
+                desc: 'with Babel',
+                iconHash: 'bolt-line',
+                annotation: ''
+              },
+              {
+                name: 'Polyfills & Fallbacks',
+                desc: 'for legacy browsers',
+                iconHash: 'balance-line',
+                annotation: ''
+              },
+              {
+                name: 'Auto generate SVG sptrite',
+                desc: '2-type generating',
+                iconHash: 'calendar-outline-badged',
+                annotation: 'recommended symbol use'
+              },
+              {
+                name: 'Deploy',
+                desc: 'Release to the public',
+                iconHash: 'upload-cloud-line',
+                annotation: 'support Netlify & GitHub Pages'
+              },
+              // {
+              //   name: 'Others Good……',
+              //   desc: '',
+              //   iconHash: 'thumbs-up-line',
+              //   annotation: ''
+              // }
+            ]
+          each index in featureList
+            li.about-feature__list__item
+              svg.about-feature__list__item__icon
+                title= index.name
+                desc= index.desc
+                use(xlink:href= pathSetting.svgSprite.keepFill + '#' + index.iconHash)
+              h2.about-feature__list__item__name.js-matchHeight(data-mh="about-feature__name")= index.name
+              p.about-feature__list__item__desc.js-matchHeight(data-mh="about-feature__desc")= index.desc
+              if index.annotation
+                span.about-feature__list__item__annotation= index.annotation
+        
+        p.about-feature__andMore and more…
+        button(type='button')
+          a.m-btn--fill(href='https://1natsu172.gitbooks.io/dekomori/content/features.html') Check the feature document
+    
+    section.l-section.about-gettingStarted
+      .l-container
+        h1.about-gettingStarted__heading Getting Started
+        
+        //- Netlifyからゲットする場合
+        article.about-gettingStarted__howToGet
+          h2.about-gettingStarted__branchTitle If you have already a netlify account
+          section.about-gettingStarted__howToGet__methodSection
+            h3.about-gettingStarted__howToGet__methodTitle 1. Click button and setup Netlify site.
+            //- Netlify Button
+            div.about-gettingStarted__netlifyButton
+              button(type='button')
+                a(href="https://app.netlify.com/start/deploy?repository=https://github.com/1natsu172/DEKOMORI")
+                  img(src="https://www.netlify.com/img/deploy/button.svg" title="Deploy to Netlify")
+            
+          section.about-gettingStarted__howToGet__methodSection
+            h3.about-gettingStarted__howToGet__methodTitle 2. On your local cli
+            pre.about-gettingStarted__cli
+              code.about-gettingStarted__cli__command
+                = '$ git clone <your-repository-url>'
+                |
+                |
+                = '$ cd <your-repository-name>'
+                |
+                |
+                = '$ npm install'
+                |
+                |
+                = '$ npm run dev'
+          
+        hr.about-gettingStarted__hr
+        
+        //- git cloneでゲットする場合      
+        article.about-gettingStarted__howToGet
+          h2.about-gettingStarted__branchTitle Another way
+          
+          section.about-gettingStarted__howToGet__methodSection
+            h3.about-gettingStarted__howToGet__methodTitle 1. On your local cli
+            pre.about-gettingStarted__cli
+              code.about-gettingStarted__cli__command
+                = '$ git clone https://github.com/1natsu172/DEKOMORI.git trial-DEKOMORI'
+                |
+                |
+                = '$ cd trial-DEKOMORI'
+                |
+                |
+                = '$ npm install'
+                |
+                |
+                = '$ npm run dev'
+        
+        .about-gettingStarted__documentLink
+          button(type='button')
+            a.m-btn--fill(href='https://1natsu172.gitbooks.io/dekomori/') Read the details
+    
+    section.l-section.about-usage
+      .l-container
+        h1.about-usage__heading Usage
+        
+        article.about-usage__firstOfAll
+          h2.about-usage__articleHeading First of all
+          h3.about-usage__articleSubHeading Setup web site settings
+          section.about-usage__firstOfAll__method
+            div.about-usage__firstOfAll__method__inner
+              p.about-usage__firstOfAll__method__step <span class="inline-emphasis">1st step:</span> Let's setup pug's "_siteSetting.pug".
+              blockquote: p Here: 
+                code
+                  != './build/src/pug/_inc/settings/_siteSetting.pug'
+              p.about-usage__firstOfAll__method__step <span class="inline-emphasis">2nd step:</span> Let's setup pug's "block pageSummary" for each page.
+                blockquote: p Example: 
+                  code
+                    != './build/src/pug/index.pug'
+      
+        hr.about-gettingStarted__hr  
+      
+        article.about-usage__faq
+          h2.about-usage__articleHeading FAQ
+          p.about-usage__faq__buttonLead FAQ is here.
+          button(type='button')
+            a.m-btn--fill(href='https://1natsu172.gitbooks.io/dekomori/content/faq.html') Read the FAQ
+          
+    section.l-section.share-social
+      .l-container
+        h1.share-social__heading Please share
+        div.share-social__buttons
           -
             const shareService = [
-              'hatebu',
-              'twitter',
-              'facebook',
-              'line'
+              {
+                service: 'twitter',
+                text: 'Twitter',
+                classAttributes: 'shareBtn--twitter',
+                iconHash: 'twitter'
+              },
+              {
+                service: 'facebook',
+                text: 'Facebook',
+                classAttributes: 'shareBtn--facebook',
+                iconHash: 'facebook'
+              },
+              {
+                service: 'line',
+                text: 'LINE',
+                classAttributes: 'shareBtn--line',
+                iconHash: 'line'
+              },
+              {
+                service: 'hatebu',
+                text: 'B!',
+                classAttributes: 'shareBtn--hatebu',
+                iconHash: 'hatenabookmark'
+              },
             ]
-          each val,i in shareService  
-            li.example__shareButton__official
-              +shareButton(shareService[i])
-        ul.example__shareButton
-          li.example__shareButton__custom
-            +shareButton('hatebu', 'custom')(class='btn btn-hatebu')
-              |B!
-          li.example__shareButton__custom
-            +shareButton('twitter', 'custom')(class='btn btn-twitter')
-              |Twiter
-          li.example__shareButton__custom
-            +shareButton('facebook', 'custom')(class='btn btn-facebook')
-              |Facebook
-          li.example__shareButton__custom
-            +shareButton('line', 'custom')(class='btn btn-line')
-              |LINE
+          each index in shareService
+            button(type='button')
+                +shareButton(index.service, 'custom')(class= `share-social__buttons__item m-btn--sns ${index.classAttributes}` )
+                  //- != index.text
+                  svg.share-social__buttons__item__icon.m-btn--sns__icon--svg
+                    title= index.service
+                    desc= index.text
+                    use(xlink:href= pathSetting.svgSprite.removeFill + '#' + index.iconHash)
+                      

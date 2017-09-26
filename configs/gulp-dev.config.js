@@ -108,7 +108,7 @@ export function dev_styles() {
     .pipe(
       pleeease({
         minifier: false,
-        mqpacker: true,
+        mqpacker: false,
         autoprefixer: {
           cascade: false
         },

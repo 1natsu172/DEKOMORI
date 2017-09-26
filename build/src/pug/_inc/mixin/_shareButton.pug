@@ -45,8 +45,8 @@ mixin shareButton(serviceName, type = 'official')
               const createShareURL = 'https://twitter.com/share?' + tweetQuery
               return createShareURL
           }()),
-          onclick: `window.open(this.href, 'TWwindow', 'width=680, height=480, menubar=no, toolbar=no, scrollbars=yes'); return false;`,
           target: "_blank",
+          onclick: `window.open(this.href, 'TWwindow', 'width=680, height=480, menubar=no, toolbar=no, scrollbars=yes'); return false;`,
           rel: "noopener noreferrer"
         }
       }
