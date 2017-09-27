@@ -18,6 +18,7 @@ img
   vertical-align: bottom
 
 a
+  color: $color-link
   text-decoration: none
   outline: none
   cursor: pointer
@@ -25,5 +26,94 @@ a
   &:hover
     opacity: .7
 
+//h1 ~ h6
+@for $i from 1 through 6
+  h#{$i}
+    font-weight: bold
+    margin: 2.5rem/$i 0
+    line-height: $lineHeight-lead
+
+h1
+  color: $color-heading
+  font-size: 1.75 * $font-size-default
+  +mq-min($res-largeTab-min)
+    font-size: 2.05 * $font-size-default
+  +mq-min($res-pc-min)
+    font-size: 2.45 * $font-size-default
+h2
+  font-size: 1.5 * $font-size-default
+  +mq-min($res-largeTab-min)
+    font-size: 1.8 * $font-size-default
+  +mq-min($res-pc-min)
+    font-size: 2.1 * $font-size-default
+h3
+  font-size: 1.3 * $font-size-default
+  +mq-min($res-largeTab-min)
+    font-size: 1.6 * $font-size-default
+  +mq-min($res-pc-min)
+    font-size: 1.9 * $font-size-default
+h4
+  font-size: 1.25 * $font-size-default
+  +mq-min($res-largeTab-min)
+    font-size: 1.55 * $font-size-default
+  +mq-min($res-pc-min)
+    font-size: 1.85 * $font-size-default
+h5
+  font-size: 1.2 * $font-size-default
+  +mq-min($res-largeTab-min)
+    font-size: 1.5 * $font-size-default
+  +mq-min($res-pc-min)
+    font-size: 1.8 * $font-size-default
+h6
+  font-size: 1.15 * $font-size-default
+  +mq-min($res-largeTab-min)
+    font-size: 1.45 * $font-size-default
+  +mq-min($res-pc-min)
+    font-size: 1.75 * $font-size-default
+
 p
   line-height: $lineHeight-default
+  > code
+    font-size: 1.2rem
+    background-color: $color-inlineCodeBG
+    color: $color-inlineCodeText
+    padding: .4rem .7rem
+    word-break: break-all
+
+pre, xmp, plaintext, listing, tt, code, kbd, samp
+  font-family: $monospace
+
+pre
+  overflow: auto
+  white-space: pre
+  > code
+    white-space: pre
+    word-wrap: normal
+
+code
+  word-wrap: break-word
+
+blockquote
+  border-left: solid .4rem $color-blockQuoteBorder
+  padding-left: .8rem
+  > p
+    font-size: 1.4rem
+    line-height: 1.9
+
+hr
+  border: none
+  width: 50%
+  height: .5rem
+  margin: 4rem auto
+  background-color: $color-hrLine
+  +mq-min($res-largeTab-min)
+    margin: 6rem auto
+  +mq-min($res-pc-min)
+    margin: 7.5rem auto
+
+button
+  font-size: inherit
+  font-family: inherit
+  border: none
+  background: none
+  padding: 0
