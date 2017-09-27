@@ -1,11 +1,17 @@
 //// for .l-**** styles
 
-// Example
-.example-l-container
-  padding: 0 3rem
+.l-container
+  padding: 0 1rem
   +mq-min($res-smallTab-min)
     padding: 0 15%
   +mq-min($res-pc-min)
     padding: 0
     max-width: 61.25em
     margin: auto
+  +mq-min($res-pc-mid)
+    max-width: 73.75em
+
+.l-section
+  padding: 3rem 0
+  +mq-min($res-largeTab-min)
+    padding: 5rem 0
