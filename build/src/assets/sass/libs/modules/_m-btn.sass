@@ -1,5 +1,6 @@
 // Generic button
 .m-btn
+  $this: &
   padding: .6rem 1.2rem
   color: $color-btnText
   background-color: $color-btnBg
@@ -12,3 +13,16 @@
     opacity: .7
     color: $color-btnText-hover
     background-color: $color-btnBg-hover
+  &__icon
+    position: absolute
+    left: 1rem
+    width: 2rem
+    height: 2rem
+    fill: $color-btnIcon
+    transition: all .3s
+    #{$this}:hover &
+      fill: $color-btnIcon-hover
+
+.m-btn--icon
+  @extend .m-btn
+  padding-left: 3.8rem
