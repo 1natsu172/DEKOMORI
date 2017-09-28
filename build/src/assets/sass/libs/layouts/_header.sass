@@ -28,7 +28,9 @@
     font-size: 1.4rem
     opacity: 0.6
   &__adsense
-    margin-top: 3.5rem
+    margin: 3.5rem auto 0
+    +mq-min($res-largeTab-min)
+      width: 65vw
 
 .headerNav
   &__item
