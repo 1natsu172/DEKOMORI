@@ -68,7 +68,7 @@ const stripeEffects = () => {
     // Element2展開 & Element1を擬似的に隠す(Element2の下に収める)
     .staggerTo(
       [stripeBorderElement2, stripeBorderElement1],
-      0.8,
+      0.6,
       {
         ease: tweenEase,
         scaleY: 1
@@ -79,7 +79,7 @@ const stripeEffects = () => {
     // 順にボーダーを非表示にする(フェードアウト)
     .staggerTo(
       [stripeBorderElement2, stripeBorderElement1],
-      0.8,
+      0.6,
       {
         transformOrigin: 'bottom',
         ease: tweenEase,
