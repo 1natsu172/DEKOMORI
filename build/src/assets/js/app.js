@@ -7,6 +7,7 @@ import { TweenMax, TimelineMax } from 'gsap'
 import CSSRulePlugin from 'gsap/CSSRulePlugin'
 import 'gsap-then'
 import webfontJudger from 'WebfontJudger'
+import scrollHandleInLoading from 'scrollHandleInLoading'
 
 // ✍️
 document.addEventListener('DOMContentLoaded', () => {
@@ -196,9 +197,11 @@ const loadingSpinnerAnimation = (() => {
 
 const loadStart = () => {
   return new Promise((resolve, reject) => {
+    scrollHandleInLoading()
     // スピナー再生開始
     loadingSpinnerAnimation.play()
     document.body.classList.add('is-loading')
+
     resolve()
   })
 }
@@ -218,15 +221,15 @@ const loadEnd = () => {
     // loading完全に終わったら消す
     loadingGaugeTl.then(() => {
       document.querySelector('.l-loading').style.display = 'none'
+      resolve()
     })
-    resolve()
   })
 }
 
 async function loadingProcessFunc() {
   await Promise.all([loadStart(), webfontJudger(), judgeLoadState()])
-  await loadComplete() // addclassしたりする
   await loadEnd() // stripeEffects
+  await loadComplete() // addclassしたりする
 }
 
 // ローディング処理開始
