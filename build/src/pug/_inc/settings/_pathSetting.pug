@@ -12,4 +12,5 @@ include /_inc/settings/_projectNamePath.pug
     },
     css: _projectNamePath + '/assets/css', //- {string}
     js: _projectNamePath + '/assets/js', //- {string}
+    pageUrl: () => { return _projectNamePath + pageSummary.pageUrl }, //- insert _projectNamePath in pageSummary.pageUrl
   }

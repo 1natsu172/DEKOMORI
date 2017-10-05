@@ -10,7 +10,7 @@ html(lang= siteSetting.siteLang prefix="og: http://ogp.me/ns#")
     block pageMeta
     link(rel="icon" ,href= pathSetting.image + '/siteImage/favicon.ico')
     link(rel="apple-touch-icon" ,href= pathSetting.image + '/siteImage/apple-touch-icon.png')
-    link(rel="canonical" ,href= siteSetting.rootUrl+pageSummary.pageUrl)
+    link(rel="canonical" ,href= siteSetting.rootUrl + pathSetting.pageUrl())
     //- Load Compiled CSS
     link(rel="stylesheet",href= pathSetting.css + '/style.css')
     //- Load Compiled JS from moduleBundler
